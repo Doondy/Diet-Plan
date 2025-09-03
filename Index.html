@@ -1,93 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Colorful Diet Plan Form</title>
-  <link rel="stylesheet" href="Diet.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diet Plan</title>
+  <link rel="stylesheet" href="Diet.css">
 </head>
 <body>
+  <div class="container">
+    <h1>Personalized Diet Plan</h1>
+    <form class="diet-form">
+      <label for="name">Name:</label>
+      <input type="text" id="name" placeholder="Enter your name" required>
 
-  <div class="form-wrapper">
-    <h1>🥗 Personalized Diet Plan Form</h1>
+      <label for="age">Age:</label>
+      <input type="number" id="age" placeholder="Enter your age" required>
 
-    <form action="#" method="post">
+      <label for="gender">Gender:</label>
+      <select id="gender" required>
+        <option value="">Select</option>
+        <option>Male</option>
+        <option>Female</option>
+        <option>Other</option>
+      </select>
 
-      <div class="form-group">
-        <label for="name">👤 Full Name</label>
-        <input type="text" id="name" name="name" placeholder="Enter your full name" required />
-      </div>
+      <label for="goal">Goal:</label>
+      <select id="goal" required>
+        <option value="">Select</option>
+        <option>Weight Loss</option>
+        <option>Muscle Gain</option>
+        <option>Maintain Weight</option>
+      </select>
 
-      <div class="form-group">
-        <label for="email">📧 Email Address</label>
-        <input type="email" id="email" name="email" placeholder="Enter your email" required />
-      </div>
+      <label for="activity">Activity Level:</label>
+      <select id="activity" required>
+        <option value="">Select</option>
+        <option>Sedentary</option>
+        <option>Moderately Active</option>
+        <option>Highly Active</option>
+      </select>
 
-      <div class="form-group">
-        <label for="phone">📞 Phone Number</label>
-        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required />
-      </div>
-
-      <div class="form-group">
-        <label for="age">🎂 Age</label>
-        <input type="number" id="age" name="age" min="1" max="120" placeholder="Your age" required />
-      </div>
-
-      <div class="form-group">
-        <label for="gender">🚻 Gender</label>
-        <select id="gender" name="gender" required>
-          <option value="" disabled selected>Select your gender</option>
-          <option value="male">♂️ Male</option>
-          <option value="female">♀️ Female</option>
-          <option value="other">⚧ Other</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label for="diet">🥘 Diet Preference</label>
-        <select id="diet" name="diet" required>
-          <option value="" disabled selected>Choose your preference</option>
-          <option value="vegetarian">Vegetarian 🌱</option>
-          <option value="vegan">Vegan 🌿</option>
-          <option value="keto">Keto 🥩</option>
-          <option value="paleo">Paleo 🍖</option>
-          <option value="mediterranean">Mediterranean 🍅</option>
-          <option value="nonveg">Non-Vegetarian 🍗</option>
-          <option value="mixed">Mixed Diet 🍽️</option>
-          <option value="no_pref">No Preference 😋</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label>🍖 Favorite Non-Veg Items <small>(Select all that apply)</small></label>
-        <div class="checkbox-group">
-          <label><input type="checkbox" name="nonveg_items" value="chicken"> Chicken 🍗</label>
-          <label><input type="checkbox" name="nonveg_items" value="fish"> Fish 🐟</label>
-          <label><input type="checkbox" name="nonveg_items" value="egg"> Egg 🥚</label>
-          <label><input type="checkbox" name="nonveg_items" value="mutton"> Mutton 🍖</label>
-          <label><input type="checkbox" name="nonveg_items" value="seafood"> Seafood 🦐</label>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label>🧃 Preferred Juices <small>(Select all that apply)</small></label>
-        <div class="checkbox-group">
-          <label><input type="checkbox" name="juices" value="orange"> Orange 🍊</label>
-          <label><input type="checkbox" name="juices" value="apple"> Apple 🍎</label>
-          <label><input type="checkbox" name="juices" value="carrot"> Carrot 🥕</label>
-          <label><input type="checkbox" name="juices" value="beetroot"> Beetroot 🧃</label>
-          <label><input type="checkbox" name="juices" value="mixed"> Mixed Fruit 🍹</label>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="goal">🎯 Health Goal</label>
-        <textarea id="goal" name="goal" rows="4" placeholder="E.g., Lose weight, build muscle, improve energy..." required></textarea>
-      </div>
-
-      <button type="submit">💪 Get My Diet Plan</button>
+      <button type="submit">Generate Plan</button>
     </form>
+
+    <div id="plan" class="diet-plan">
+      <!-- Generated diet plan will appear here -->
+    </div>
   </div>
 
+  <script>
+    const form = document.querySelector('.diet-form');
+    const planDiv = document.getElementById('plan');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value;
+      const goal = document.getElementById('goal').value;
+
+      let plan = "";
+
+      if (goal === "Weight Loss") {
+        plan = `
+          <h2>Diet Plan for ${name}</h2>
+          <ul>
+            <li>Breakfast: Oatmeal with fruits</li>
+            <li>Lunch: Grilled chicken + veggies</li>
+            <li>Snack: Nuts / Green tea</li>
+            <li>Dinner: Soup + salad</li>
+          </ul>`;
+      } else if (goal === "Muscle Gain") {
+        plan = `
+          <h2>Diet Plan for ${name}</h2>
+          <ul>
+            <li>Breakfast: Eggs + whole grain bread</li>
+            <li>Lunch: Brown rice + chicken/fish</li>
+            <li>Snack: Protein shake + banana</li>
+            <li>Dinner: Quinoa + paneer/tofu</li>
+          </ul>`;
+      } else {
+        plan = `
+          <h2>Diet Plan for ${name}</h2>
+          <ul>
+            <li>Balanced meals with proteins, carbs, and fats</li>
+            <li>Include fruits and vegetables</li>
+            <li>Stay hydrated (8–10 glasses of water)</li>
+            <li>Limit processed food</li>
+          </ul>`;
+      }
+
+      planDiv.innerHTML = plan;
+    });
+  </script>
 </body>
 </html>

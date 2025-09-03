@@ -1,126 +1,65 @@
-* {
-  box-sizing: border-box;
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #e0f7fa, #e1bee7);
   margin: 0;
   padding: 0;
 }
 
-body {
-  background: linear-gradient(135deg, #c3ecf5, #f5c3d0);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #333;
-  padding: 40px 20px;
-}
-
-.form-wrapper {
-  max-width: 700px;
-  margin: auto;
-  background-color: #ffffffdd;
-  padding: 30px 40px;
-  border-radius: 15px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+.container {
+  width: 90%;
+  max-width: 600px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 h1 {
   text-align: center;
-  color: #2c3e50;
-  margin-bottom: 30px;
-  font-size: 28px;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-}
-
-.form-group {
-  margin-bottom: 20px;
+  color: #333;
 }
 
 label {
   display: block;
-  margin-bottom: 8px;
+  margin-top: 15px;
   font-weight: bold;
   color: #444;
 }
 
-input,
-select,
-textarea {
+input, select {
   width: 100%;
-  padding: 12px;
-  border: 2px solid #ccc;
-  border-radius: 10px;
-  font-size: 16px;
-  background-color: #f9f9f9;
-  transition: border-color 0.3s, box-shadow 0.3s;
-}
-
-input:focus,
-select:focus,
-textarea:focus {
-  border-color: #ff6f91;
-  outline: none;
-  box-shadow: 0 0 5px rgba(255, 111, 145, 0.6);
-}
-
-textarea {
-  resize: vertical;
+  padding: 10px;
+  margin-top: 8px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
 }
 
 button {
-  padding: 15px;
-  font-size: 18px;
-  font-weight: bold;
-  background: linear-gradient(90deg, #ff6f91, #ff9671);
+  width: 100%;
+  margin-top: 20px;
+  padding: 12px;
+  background: #673ab7;
+  color: #fff;
   border: none;
-  color: white;
-  border-radius: 12px;
+  border-radius: 8px;
+  font-size: 16px;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: 0.3s;
 }
 
 button:hover {
-  background: linear-gradient(90deg, #ff9671, #ff6f91);
+  background: #512da8;
 }
 
-/* Checkbox group styling */
-.checkbox-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.checkbox-group label {
-  background-color: #ffe6ea;
-  border: 1px solid #ffccd5;
+.diet-plan {
+  margin-top: 25px;
+  padding: 15px;
+  background: #f3e5f5;
   border-radius: 8px;
-  padding: 8px 12px;
-  font-size: 14px;
-  cursor: pointer;
-  user-select: none;
-  transition: all 0.3s;
 }
 
-.checkbox-group input[type="checkbox"] {
-  margin-right: 6px;
-}
-
-.checkbox-group label:hover {
-  background-color: #ffccd5;
-}
-
-/* Responsive */
-@media (max-width: 600px) {
-  .form-wrapper {
-    padding: 20px;
-  }
-
-  h1 {
-    font-size: 24px;
-  }
-
-  button {
-    font-size: 16px;
-  }
+.diet-plan h2 {
+  margin-top: 0;
+  color: #333;
 }
